@@ -38,7 +38,7 @@ end;
 
 function hset(set_name, key, value: string): string;
 begin
-	if(not hsetexists(set_name)) then begin
+	if(not (hsetexists(set_name)) and (set_name <> '')) then begin
 		result := '::> Set doesn''t exist';
 		exit();
 	end;
@@ -53,7 +53,7 @@ end;
 
 function hget(set_name, key: string): string;
 begin
-	if(not hsetexists(set_name)) then begin
+	if(not (hsetexists(set_name)) and (set_name <> '')) then begin
 		result := '::> Set doesn''t exist';
 		exit();
 	end;
